@@ -1,11 +1,11 @@
 import React, { useRef, useEffect } from "react"; 
+import * as turf from "@turf/turf";
 import mapboxgl from "mapbox-gl";
 
-mapboxgl.accessToken = "pk.eyJ1Ijoia2FzaGlmaXYiLCJhIjoiY2t3YXdjaDhoOGJlcjJubXRvOG5lamJrMCJ9.o2nL-I7eqpqsWcBFwyIcgA"; 
-
-export const Map = () => {
+mapboxgl.accessToken = process.env.REACT_APP_MAPBOX_TOKEN;
+export const Map = (props) => {
+  const {sources, layers} = props;
   const mapContainer = useRef(); 
-  console.log(process.env.MAPBOX_TOKEN);
   useEffect(() => {
     const map = new mapboxgl.Map({
       container: "map",
@@ -15,6 +15,19 @@ export const Map = () => {
       pitch: 60,
     }); 
     map.on("load", () => {
+      console.log(sources)
+      console.log(layers)
+      if (sources !== undefined){
+        sources.forEach((source) =>{
+          map.addSource(source.name, source.data);
+        });
+      }
+
+      // map.addSource("circleData", {
+      //       type: "geojson",
+      //       data: _circle,
+      //     });
+
       map.addLayer(
         {
         'id': 'add-3d-buildings',
@@ -22,7 +35,7 @@ export const Map = () => {
         'source-layer': 'building',
         'filter': ['==', 'extrude', 'true'],
         'type': 'fill-extrusion',
-        'minzoom': 10,
+        'minzoom': 2,
         'paint': {
         'fill-extrusion-color': '#aaa',
          
@@ -33,18 +46,18 @@ export const Map = () => {
         'interpolate',
         ['linear'],
         ['zoom'],
-        10,
+        2,
         0,
-        10.05,
+        2.05,
         ['get', 'height']
         ],
         'fill-extrusion-base': [
         'interpolate',
         ['linear'],
         ['zoom'],
-        10,
+        2,
         0,
-        10.05,
+        2.05,
         ['get', 'min_height']
         ],
         'fill-extrusion-opacity': 1.0
@@ -67,6 +80,20 @@ export const Map = () => {
           "sky-atmosphere-sun-intensity": 15,
         },
       });
+      // map.addLayer({
+      //   id: "circle-fill",
+      //   type: "fill",
+      //   source: "circleData",
+      //   paint: {
+      //     "fill-color": "red",
+      //     "fill-opacity": 0.8,
+      //   },
+      // });
+      if (layers !== undefined){
+        layers.forEach((layer) =>{
+          map.addLayer(layer);
+        });
+      }
     });
   });
 
