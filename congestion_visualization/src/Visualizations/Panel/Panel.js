@@ -1,13 +1,15 @@
 import { LocationZonePanel } from "../LocationZones";
 import { PanelItemWrapper } from "./PanelItemWrapper";
 import './Panel.css';
-import { useState, useCallback, useMemo } from "react";
+
 function Panel() {
-  const panels = ['hotspots'];
+  const panels = {
+    hotspots: LocationZonePanel,
+  };
   return (
     <div className="panel">
-      {panels.map((key) => (
-        <PanelItemWrapper key={key} name={key} Child={LocationZonePanel} />
+      {Object.entries(panels).map(([key, value]) => (
+        <PanelItemWrapper key={key} name={key} Child={value} />
       ))}
     </div>
   );
