@@ -1,0 +1,75 @@
+SCREEN LINE,DIRECTION,NUMBER OF STATIONS,TOTAL VEHICLES,TOTAL PERSONS,TOTAL AUTO,TOTAL AUTO PERSONS,TOTAL LIGHT TRUCKS,TOTAL TRUCKS (EXCLUDING LIGHT TRUCKS),TOTAL TRANSIT,TOTAL TRANSIT PERSONS,TOTAL BUSES,TOTAL BUS PASSENGERS,TOTAL LOCAL BUSES,TOTAL LOCAL BUS PASSENGERS,TOTAL BICYCLES,TOTAL MOTORCYCLES,TOTAL SUBWAY PASSENGERS,TOTAL GO TRAIN PASSENGERS,TOTAL PEDESTRIANS
+1001I City West Boundary (Peel-Toronto Boundary) (Inbound),East,22,111161,119194,97922,110491,7257,5234,752,8703,748,7630,38,482,63,0,0,1073,0
+1001O City West Boundary (Peel-Toronto Boundary) (Outbound),West,22,127909,164283,113168,127787,7818,6141,801,36496,782,11386,41,385,42,0,0,25110,0
+1002I City North Boundary (York-Toronto Boundary) (Inbound),South,45,133202,153254,119631,141962,7368,5376,827,11292,827,11292,204,3011,23,0,0,0,0
+1002O City North Boundary (York-Toronto Boundary) (Outbound),North,45,162046,191594,147977,169399,7503,5704,871,22195,862,13577,205,2415,14,0,0,8618,0
+1003I City East Boundary (Durham-Toronto Boundary) (Inbound),West,6,22157,22812,18530,21395,1805,1747,80,1417,75,941,0,0,5,0,0,476,0
+1003O City East Boundary (Durham-Toronto Boundary) (Outbound),East,6,42926,51996,38892,42222,2417,1550,75,9774,67,1473,0,0,10,0,0,8301,0
+1004I Humber River (Inbound),N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
+1004O Humber River (Outbound),N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
+1005I CNR Newmarket Subdivision (Inbound),East/North,19,42724,57000,40517,45040,795,811,605,11960,601,10954,333,7287,80,0,0,1006,0
+1005O CNR Newmarket Subdivision (Outbound),South/West,19,45469,97440,42640,52151,1134,1061,657,45289,634,14001,342,9090,162,0,0,31288,0
+1006I CNR Bala Subdivision (Inbound),North/South/West,17,34781,57173,31596,36969,1790,942,517,20204,453,8300,214,6332,304,0,11305,599,0
+1006O CNR Bala Subdivision (Outbound),East/North/South,17,46135,110002,42543,50198,2140,1050,472,59804,402,11427,194,9652,692,0,28303,20074,0
+1007I CNR Uxbridge Subdivision (Inbound),West,9,29310,51111,27990,35279,138,492,690,15832,690,15832,491,14059,0,0,0,0,0
+1007O CNR Uxbridge Subdivision (Outbound),East,9,41835,71574,40385,49836,207,549,694,21738,694,21738,472,19855,3,0,0,0,0
+1008I Eglinton Avenue-Humber River to CNR Uxbridge Subdivision (Inbound),N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
+1008O Eglinton Avenue-Humber River to CNR Uxbridge Subdivision (Outbound),N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
+1009I Hwy 401 South (Inbound),N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
+1009O Hwy 401 South (Outbound),N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
+1010I Hwy 401 North (Inbound),N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
+1010O Hwy 401 North (Outbound),N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
+1011I Taylor Creek-Victoria Park (Inbound),N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
+1011O Taylor Creek-Victoria Park (Outbound),N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
+1012I Railway Cordon North (North Toronto Subdivision) (Inbound),South,6,12195,63567,11645,13195,345,113,213,28978,92,1369,32,397,266,0,27609,0,0
+1012O Railway Cordon North (North Toronto Subdivision) (Outbound),North,6,19076,111278,18294,21735,531,160,206,53854,91,1366,31,804,369,0,52488,0,0
+1014I Central Area Cordon West (Bathurst St) (After 1986) (Inbound),East,23,37703,67816,35355,38738,1163,755,490,29078,430,10975,198,7267,716,0,17097,1006,0
+1014O Central Area Cordon West (Bathurst St) (After 1986) (Outbound),West,23,42142,120291,38861,46948,1837,1019,507,73343,425,13873,193,9572,910,0,28182,31288,0
+1031I Railway Cordon West (Newmarket Subdivision) (Inbound),East/North,17,38419,50677,36363,39817,765,757,538,10860,534,9854,284,6296,80,0,0,1006,0
+1031O Railway Cordon West (Newmarket Subdivision) (Outbound),South/West,17,40969,90299,38348,46626,1098,975,571,43673,548,12385,290,7647,162,0,0,31288,0
+1035I Central Area Cordon East (Don River) (Inbound),North/South/West,17,34781,57173,31596,36969,1790,942,517,20204,453,8300,214,6332,304,0,11305,599,0
+1035O Central Area Cordon East (Don River) (Outbound),East/North/South,17,46135,110002,42543,50198,2140,1050,472,59804,402,11427,194,9652,692,0,28303,20074,0
+1058I Central Area Cordon North (Inbound),South,6,12195,63567,11645,13195,345,113,213,28978,92,1369,32,397,266,0,27609,0,0
+1058O Central Area Cordon North (Outbound),North,6,19076,111278,18294,21735,531,160,206,53854,91,1366,31,804,369,0,52488,0,0
+1059I Downtown Cordon North (Davenport Rd.) (Inbound),N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
+1059O Downtown Cordon North (Davenport Rd.) (Outbound),N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
+1061I Downtown Core Cordon North-Dundas St (Inbound),N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
+1061O Downtown Core Cordon North-Dundas St (Outbound),N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
+1062I Downtown Core Cordon South-Front St (Inbound),N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
+1062O Downtown Core Cordon South-Front St (Outbound),N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
+1065I Downtown Core Cordon West-University Ave (Inbound),N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
+1065O Downtown Core Cordon West-University Ave (Outbound),N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
+1066I Downtown Core Cordon East-Jarvis St (Inbound),N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
+1066O Downtown Core Cordon East-Jarvis St (Outbound),N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
+1070I Suburban West Boundary (Humber River) (Inbound),N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
+1070O Suburban West Boundary (Humber River ) (Outbound),N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
+1071I Suburban North Boundary (Hwy 401 South) (Inbound),N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
+1071O Suburban North Boundary (Hwy 401 South) (Outbound),N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
+1072I Suburban East Boundary (Uxbridge Subdivision) (Inbound),West,6,17848,31133,17033,20800,94,262,459,10333,459,10333,295,8780,0,0,0,0,0
+1072O Suburban East Boundary (Uxbridge Subdivision) (Outbound),East,6,27508,46729,26577,32649,145,323,463,14080,463,14080,295,12586,2,0,0,0,0
+1081I Extended Core Cordon West (Inbound),East,8,22676,26713,21446,22723,561,495,178,3990,174,2984,20,311,80,0,0,1006,0
+1081O Extended Core Cordon West (Outbound),West,8,24218,62676,22424,27710,993,643,181,34966,158,3678,19,212,162,0,0,31288,0
+1082I Extended Core Cordon North (South of Dundas St) (Inbound),N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
+1082O Extended Core Cordon North (South of Dundas St) (Outbound),N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
+1083I Extended Core Cordon East (West of Jarvis) (Inbound),West,3,0,599,0,0,0,0,5,599,0,0,0,0,0,0,0,599,0
+1083O Extended Core Cordon East (West of Jarvis) (Outbound),East,3,0,20074,0,0,0,0,16,20074,0,0,0,0,0,0,0,20074,0
+1084I Downtown Cordon West (University Ave: Front-Davenport) (Inbound),N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
+1084O Downtown Cordon West (University Ave: Front-Davenport) (Outbound),N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
+1085I Downtown Cordon East (Jarvis: Front-Bloor) (Inbound),N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
+1085O Downtown Cordon East (Jarvis: Front-Bloor) (Outbound),N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
+1799I Central Area Cordon (After 1986)  (Inbound),East/South/North/West,46,84679,188556,78596,88902,3298,1810,1220,78260,975,20644,444,13996,1286,0,56011,1605,0
+1799O Central Area Cordon (After 1986)  (Outbound),East/South/North/West,46,107353,341571,99698,118881,4508,2229,1185,187001,918,26666,418,20028,1971,0,108973,51362,0
+1800I Extended Core Cordon (Inbound),East/West,11,22676,27312,21446,22723,561,495,183,4589,174,2984,20,311,80,0,0,1605,0
+1800O Extended Core Cordon (Outbound),East/West,11,24218,82750,22424,27710,993,643,197,55040,158,3678,19,212,162,0,0,51362,0
+1801I Metro Boundary Cordon (Inbound),East/South/West,73,266520,295260,236083,273848,16430,12357,1659,21412,1650,19863,242,3493,91,0,0,1549,0
+1801O Metro Boundary Cordon (Outbound),East/North/West,73,332881,407873,300037,339408,17738,13395,1747,68465,1711,26436,246,2800,66,0,0,42029,0
+1802I Suburban Cordon-Humber River-Hwy 401-CN Uxbridge (Inbound),West,6,17848,31133,17033,20800,94,262,459,10333,459,10333,295,8780,0,0,0,0,0
+1802O Suburban Cordon-Humber River-Hwy 401-CN Uxbridge (Outbound),East,6,27508,46729,26577,32649,145,323,463,14080,463,14080,295,12586,2,0,0,0,0
+1803I Railway Cordon-CNR-CPR-Don River (Inbound),East/South/North/West,40,85395,171417,79604,89981,2900,1812,1268,60042,1079,19523,530,13025,650,0,38914,1605,0
+1803O Railway Cordon-CNR-CPR-Don River (Outbound),East/South/North/West,40,106180,311579,99185,118559,3769,2185,1249,157331,1041,25178,515,18103,1223,0,80791,51362,0
+1804I Downtown Cordon-University-Davenport-Jarvis-Front (Inbound),N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
+1804O Downtown Cordon-University-Davenport-Jarvis-Front (Outbound),N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
+1806I Downtown Core Cordon-University-Dundas-Jarvis-Front (Inbound),N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
+1806O Downtown Core Cordon-University-Dundas-Jarvis-Front (Outbound),N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A,N/A
+1856I GO Rail (Inbound),East/South/West,14,0,3154,0,0,0,0,18,3154,0,0,0,0,0,0,0,3154,0
+1856O GO Rail (Outbound),East/North/West,14,0,93391,0,0,0,0,75,93391,0,0,0,0,0,0,0,93391,0
