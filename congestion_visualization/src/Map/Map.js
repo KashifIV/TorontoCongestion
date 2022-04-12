@@ -1,6 +1,6 @@
 import React, { useRef, useEffect } from "react"; 
-import * as turf from "@turf/turf";
 import mapboxgl from "mapbox-gl";
+import { MapData } from "../MapUtil/MapDataController";
 
 mapboxgl.accessToken = process.env.REACT_APP_MAPBOX_TOKEN;
 export const Map = (props) => {
@@ -15,18 +15,10 @@ export const Map = (props) => {
       pitch: 60,
     }); 
     map.on("load", () => {
-      console.log(sources)
-      console.log(layers)
-      if (sources !== undefined){
-        sources.forEach((source) =>{
-          map.addSource(source.name, source.data);
-        });
-      }
-
-      // map.addSource("circleData", {
-      //       type: "geojson",
-      //       data: _circle,
-      //     });
+      console.log(MapData.data);
+      MapData.sources().forEach((source) =>{
+        map.addSource(source.name, source.data);
+      });
 
       map.addLayer(
         {
@@ -80,20 +72,11 @@ export const Map = (props) => {
           "sky-atmosphere-sun-intensity": 15,
         },
       });
-      // map.addLayer({
-      //   id: "circle-fill",
-      //   type: "fill",
-      //   source: "circleData",
-      //   paint: {
-      //     "fill-color": "red",
-      //     "fill-opacity": 0.8,
-      //   },
-      // });
-      if (layers !== undefined){
-        layers.forEach((layer) =>{
-          map.addLayer(layer);
-        });
-      }
+
+      MapData.layers().forEach((layer) =>{
+        map.addLayer(layer);
+      });
+
     });
   });
 

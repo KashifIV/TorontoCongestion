@@ -1,5 +1,5 @@
 import * as turf from "@turf/turf";
-
+import { MapData } from "./MapDataController";
 function CreateCircularHighlight(center, radius, name){
   let _circle = turf.circle(turf.point(center), radius, {
     steps: 80,
@@ -23,6 +23,7 @@ function CreateCircularHighlight(center, radius, name){
       "fill-opacity": 0.8,
     },
   };
+  MapData.addData(data, layer);
   return {source: data, layer: layer};
 }
 
