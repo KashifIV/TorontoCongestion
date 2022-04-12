@@ -1,0 +1,20 @@
+.panel{
+  position: fixed;
+  left: 0;
+  top: 5em;
+  z-index: 3;
+}
+
+.panelTab{
+  transform-origin: top center;
+  transform: rotate(90);
+  -webkit-transform:rotate(90deg);
+}
+
+.hide{
+  display: none;
+  visibility: hidden;
+}
+.show{
+  display: contents;
+}
