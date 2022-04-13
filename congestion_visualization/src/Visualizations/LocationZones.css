@@ -1,5 +1,4 @@
 .locationZonePanel{
-  background-color: black;
-  opacity: 0.5;
-  max-width: 300px;
+  background-color: rgba(0, 0, 0, 0.349);
+  max-width: 20em;
 }

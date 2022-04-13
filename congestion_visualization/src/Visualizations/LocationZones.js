@@ -12,7 +12,6 @@ function LocationZonePanel(){
   useEffect(() => {
     if (!MapData.containsData('LocationZones')){
       KeyLocations().then((locations)=>{
-        console.log(locations.length)
         locations.forEach((item) => {
           CreateCircularHighlight('LocationZones', item['location'].split(',').reverse(), 0.4, item['name'],() => setClickCount(e => e+1));
         });
