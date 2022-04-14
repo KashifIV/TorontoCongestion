@@ -55,32 +55,28 @@ export const Map = (props) => {
         "source-layer": "building",
         filter: ["==", "extrude", "true"],
         type: "fill-extrusion",
-        minzoom: 2,
+        minzoom: 13,
         paint: {
           "fill-extrusion-color": "#aaa",
-
-          // Use an 'interpolate' expression to
-          // add a smooth transition effect to
-          // the buildings as the user zooms in.
-          "fill-extrusion-height": [
-            "interpolate",
-            ["linear"],
-            ["zoom"],
-            2,
+          'fill-extrusion-height': [
+            'interpolate',
+            ['linear'],
+            ['zoom'],
+            13,
             0,
-            2.05,
-            ["get", "height"],
-          ],
-          "fill-extrusion-base": [
-            "interpolate",
-            ["linear"],
-            ["zoom"],
-            2,
+            13.05,
+            ['get', 'height']
+            ],
+            'fill-extrusion-base': [
+            'interpolate',
+            ['linear'],
+            ['zoom'],
+            13,
             0,
-            2.05,
-            ["get", "min_height"],
-          ],
-          "fill-extrusion-opacity": 1.0,
+            1305,
+            ['get', 'min_height']
+            ],
+            'fill-extrusion-opacity': 0.6
         },
       });
       map.current.addSource("mapbox-dem", {
