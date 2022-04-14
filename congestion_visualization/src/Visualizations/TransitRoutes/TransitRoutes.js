@@ -7,9 +7,9 @@ function TransitRoutesPanel(){
 
   useEffect(() => {
    if (!MapData.containsData('TransitRoutes')){
-      Routes.slice(0, 5).forEach(route => {
+      Routes.slice(0,80).forEach(route => {
         const coordinates = route.stops.map(s => [Stops[s].stop_lon, Stops[s].stop_lat]);
-        RouteLine('TransitRoutes', coordinates, route.id, 'green');
+        RouteLine('TransitRoutes', coordinates, route.id, '#' + route.color);
       });
       MapData.notifySubscribers();
    }

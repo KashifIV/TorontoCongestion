@@ -1,10 +1,10 @@
 import stops from '../Data/stops.json';
-import Routes from '../Data/routes.json';
-
-const RouteNames = Routes.map(e => e['name']);
+import routes from '../Data/routes.json';
 
 let StopToRoutes = {}; 
 
+const Routes = routes//.filter(e => e.name.indexOf('Toronto') !== -1); 
+const RouteNames = Routes.map(e => e['name']);
 
 Routes.forEach(route => {
   route.stops.forEach(stop => {
