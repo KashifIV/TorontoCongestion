@@ -1,8 +1,7 @@
 import { useEffect } from "react";
-import { CreateCircularHighlight } from "../../MapUtil/CircularHighlight";
 import { MapData } from "../../MapUtil/MapDataController";
 import { RouteLine } from "../../MapUtil/RouteLine";
-import { RouteNames, Routes, Stops } from "../../Providers/TransitProvider";
+import { Routes, Stops } from "../../Providers/TransitProvider";
 
 function TransitRoutesPanel(){
 

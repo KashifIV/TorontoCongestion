@@ -12,8 +12,8 @@ function createArrow(a, b){
     var u = [v[0]/m, v[1]/m]              // get unitary vector in the direction
     var k = 0.002                           // how far to place the arrow end
     var newb = [b[0]-u[0]*k, b[1]-u[1]*k] // place the arrow end a bit before the destination
-    var s1 = rotate([0.01, 0.01], angle)  // "sides" of the arrow. Applied to a base vector in left direction <--, and rotated to match the correct angle
-    var s2 = rotate([0.01, -0.01], angle)
+    var s1 = rotate([0.003, 0.003], angle)  // "sides" of the arrow. Applied to a base vector in left direction <--, and rotated to match the correct angle
+    var s2 = rotate([0.003, -0.003], angle)
     return [a, newb, [newb[0]+s1[0], newb[1]+s1[1]], newb, [newb[0]+s2[0], newb[1]+s2[1]]]
 }
 function rotate(a, theta) {
