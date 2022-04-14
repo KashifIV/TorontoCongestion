@@ -23,10 +23,11 @@ function RouteLine(id, coordinates, name, color, onClick = null){
     'line-join': 'round',
     'line-cap': 'round'
     },
+    'opacity': 0.5,
     'paint': {
     'line-color': color,
-    'line-width': 8
-    }
+    'line-width': 8,
+    }, 
   }; 
 
   let click = null
