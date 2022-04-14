@@ -5,8 +5,14 @@ async function KeyLocations() {
   const data = await d3.csv(dataLocation);
   const locations = data
     .map((item) => ({
-      name: item["SCREEN LINE"],
+      id: item["SCREEN LINE"],
+      name: item['Unnamed: 0'],
       numPeople: item["TOTAL PERSONS (NOT including Pedestrians)"],
+      numAuto: item['TOTAL AUTO'],
+      numGoTrain: item['TOTAL GO TRAIN PASSENGERS'],
+      numSubWay: item['TOTAL SUBWAY PASSENGERS'],
+      numBus: item['TOTAL BUS PASSENGERS'],
+      numTransit: item['TOTAL TRANSIT (including school bus)'], 
       location: item["COORDINATES"],
       destination: item["DESTINATIONS"],
     }))
@@ -14,7 +20,11 @@ async function KeyLocations() {
   return locations;
 }
 const colourScale = d3.scaleQuantize()
-  .domain([0, 360367])
+  .domain([0, 400000])
   .range('#8598EF,#977AC9,#9A5FA2,#91477C,#803258,#69233A'.split(','));
 
-export { KeyLocations , colourScale};
+const sizeScale = d3.scaleLinear()
+  .domain([0, 400000])
+  .range([10, 30]);
+
+export { KeyLocations , colourScale, sizeScale};
