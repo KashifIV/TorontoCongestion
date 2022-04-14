@@ -7,26 +7,27 @@ export const Map = (props) => {
   let map = useRef();
   const mapContainer = useRef(); 
 
+  const update = () => {
+    MapData.sources().forEach(source => {
+      if (map.current.getSource(source.name) === undefined) {
+        map.current.addSource(source.name, source.data); 
+      }
+    }); 
+    MapData.layers().forEach(layer => {
+      if (map.current.getLayer(layer.id) === undefined){
+        map.current.addLayer(layer); 
+      }
+    }); 
+    MapData.clicks().forEach(click => {
+      map.current.on('click', click.layer, click.func);
+    }); 
+  }; 
+
   const forceUpdate = useCallback(() => {
     console.log(MapData.data);
     if (map.current === undefined){
       return; 
     }
-    const update = () => {
-      MapData.sources().forEach(source => {
-        if (map.current.getSource(source.name) == null) {
-          map.current.addSource(source.name, source.data); 
-        }
-      }); 
-      MapData.layers().forEach(layer => {
-        if (map.current.getLayer(layer.id) == null){
-          map.current.addLayer(layer); 
-        }
-      }); 
-      MapData.clicks().forEach(click => {
-        map.current.on('click', click.layer, click.func);
-      }); 
-    }; 
     if (!map.current.isStyleLoaded()){
       map.current.on('styledata', () => {
         update();
@@ -98,6 +99,7 @@ export const Map = (props) => {
           "sky-atmosphere-sun-intensity": 15,
         },
       });
+      update();
     });
   }, []);
 
