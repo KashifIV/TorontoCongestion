@@ -1,10 +1,12 @@
-import { LocationZonePanel } from "../LocationZones";
-import { PanelItemWrapper } from "./PanelItemWrapper";
-import './Panel.css';
 
+import { PanelItemWrapper } from "./PanelItemWrapper";
+import { LocationZonePanel } from "../LocationZones/LocationZones";
+import './Panel.css';
+import { TransitRoutesPanel } from "../TransitRoutes/TransitRoutes";
 function Panel() {
   const panels = {
     hotspots: LocationZonePanel,
+    transit: TransitRoutesPanel
   };
   return (
     <div className="panel">

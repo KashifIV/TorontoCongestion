@@ -4,7 +4,7 @@ import './Panel.css'
 function PanelTab(props){
   const {name, callback} = props; 
 
-  return <Button className="panelTab" onClick={callback}>
+  return <Button variant="light" className="panelTab" onClick={callback}>
       {name}
     </Button>
 }
@@ -14,13 +14,12 @@ function PanelItemWrapper(props){
   const onClick = () => {
     setOpen(!isOpen);
   }
-  console.log(isOpen);
 
   return <div className="panelItemWrapper">
+    <PanelTab name={name} callback={onClick}/>
     <div style={{display: isOpen ? 'block' : 'none' }}>
       <Child />
     </div>
-    <PanelTab name={name} callback={onClick}/>
   </div>
   
 }

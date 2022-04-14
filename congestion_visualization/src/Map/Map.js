@@ -1,38 +1,55 @@
-import React, { useRef, useEffect, useState } from "react";
+import React, { useRef, useEffect, useState, useMemo, useCallback } from "react";
 import mapboxgl from "mapbox-gl";
 import { MapData } from "../MapUtil/MapDataController";
 
 mapboxgl.accessToken = process.env.REACT_APP_MAPBOX_TOKEN;
 export const Map = (props) => {
-  const mapContainer = useRef();
+  let map = useRef();
+  const mapContainer = useRef(); 
 
-  const [sources, setSources] = useState(MapData.sources());
-  const [layers, setLayers] = useState(MapData.layers());
-  const [clicks, setClicks] = useState(MapData.clicks())
+  const update = () => {
+    MapData.sources().forEach(source => {
+      if (map.current.getSource(source.name) === undefined) {
+        map.current.addSource(source.name, source.data); 
+      }
+    }); 
+    MapData.layers().forEach(layer => {
+      if (map.current.getLayer(layer.id) === undefined){
+        map.current.addLayer(layer); 
+      }
+    }); 
+    MapData.clicks().forEach(click => {
+      map.current.on('click', click.layer, click.func);
+    }); 
+  }; 
 
-  const forceUpdate = () => {
-    setSources(MapData.sources());
-    setLayers(MapData.layers());
-    setClicks(MapData.clicks())
-  };
+  const forceUpdate = useCallback(() => {
+    console.log(MapData.data);
+    if (map.current === undefined){
+      return; 
+    }
+    if (!map.current.isStyleLoaded()){
+      map.current.on('styledata', () => {
+        update();
+      });
+    }
+    else {
+      update(); 
+    }
+  }, [map]);
 
   MapData.addSubscriber(forceUpdate);
 
   useEffect(() => {
-    const map = new mapboxgl.Map({
+    map.current = new mapboxgl.Map({
       container: "map",
       style: "mapbox://styles/mapbox/light-v10",
       center: [-79.3883, 43.6548],
       zoom: 14,
       pitch: 60,
     });
-    map.on("load", () => {
-      console.log(MapData.data);
-      sources.forEach((source) => {
-        map.addSource(source.name, source.data);
-      });
-
-      map.addLayer({
+    map.current.on("load", () => {
+      map.current.addLayer({
         id: "add-3d-buildings",
         source: "composite",
         "source-layer": "building",
@@ -66,14 +83,14 @@ export const Map = (props) => {
           "fill-extrusion-opacity": 1.0,
         },
       });
-      map.addSource("mapbox-dem", {
+      map.current.addSource("mapbox-dem", {
         type: "raster-dem",
         url: "mapbox://mapbox.mapbox-terrain-dem-v1",
         tileSize: 512,
         maxZoom: 16,
       });
-      map.setTerrain({ source: "mapbox-dem", exaggeration: 1.5 });
-      map.addLayer({
+      map.current.setTerrain({ source: "mapbox-dem", exaggeration: 1.5 });
+      map.current.addLayer({
         id: "sky",
         type: "sky",
         paint: {
@@ -82,16 +99,9 @@ export const Map = (props) => {
           "sky-atmosphere-sun-intensity": 15,
         },
       });
-
-      layers.forEach((layer) => {
-        map.addLayer(layer);
-      });
-
-      clicks.forEach((click)=> {
-        map.on('click', click.layer, click.func);
-      });
+      update();
     });
-  });
+  }, []);
 
   return (
     <div
