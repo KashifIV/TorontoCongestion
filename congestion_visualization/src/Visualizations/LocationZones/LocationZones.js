@@ -1,19 +1,18 @@
 import { useEffect, useState } from "react";
-import { CreateCircularHighlight } from "../MapUtil/CircularHighlight";
-import { MapData } from "../MapUtil/MapDataController";
-import { KeyLocations } from "../Providers/LocationProvider";
+import { CreateCircularHighlight } from "../../MapUtil/CircularHighlight";
+import { MapData } from "../../MapUtil/MapDataController";
+import { KeyLocations } from "../../Providers/LocationProvider";
 import './LocationZones.css';
 
 
 function LocationZonePanel(){
   const [clickCount, setClickCount] = useState(0);
 
-
   useEffect(() => {
     if (!MapData.containsData('LocationZones')){
       KeyLocations().then((locations)=>{
         locations.forEach((item) => {
-          CreateCircularHighlight('LocationZones', item['location'].split(',').reverse(), 0.4, item['name'],() => setClickCount(e => e+1));
+          CreateCircularHighlight('LocationZones', item['location'].split(',').reverse(), 0.4, item['name'], 'red',() => setClickCount(e => e+1));
         });
         MapData.notifySubscribers();
       });

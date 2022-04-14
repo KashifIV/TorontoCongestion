@@ -1,13 +1,13 @@
 import * as turf from "@turf/turf";
 import { MapData } from "./MapDataController";
-function CreateCircularHighlight(id, center, radius, name, onClick = null){
+function CreateCircularHighlight(id, center, radius, name, color='red', onClick = null){
   let _circle = turf.circle(turf.point(center), radius, {
     steps: 80,
     units: 'kilometers' // or "mile"
   });
 
   const data = {
-    name: name+'Source',
+    name: name,
     data: {
       type: "geojson",
       data: _circle,
@@ -17,9 +17,9 @@ function CreateCircularHighlight(id, center, radius, name, onClick = null){
   const layer = {
     id: name,
     type: "fill",
-    source: name+'Source',
+    source: name,
     paint: {
-      "fill-color": "red",
+      "fill-color": color,
       "fill-opacity": 0.8,
     },
   };

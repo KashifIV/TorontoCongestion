@@ -5,9 +5,6 @@ import { MapData } from './MapUtil/MapDataController';
 import Panel from './Visualizations/Panel/Panel';
 
 function App() {
-  useEffect(() => {
-    MapData.dumpData();
-  }, []);
   return (
     <div className="App">
       <Panel />
