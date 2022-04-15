@@ -1,8 +1,6 @@
 import React, {
   useRef,
   useEffect,
-  useState,
-  useMemo,
   useCallback,
 } from "react";
 import mapboxgl from "mapbox-gl";
@@ -31,31 +29,25 @@ export const Map = (props) => {
       map.current.on("click", click.layer, click.func);
     });
     // Remove dangling layers
-    const ids = new Set(MapData.layers().map((item) => item.id));
+    let ids = new Set(MapData.layers().map((item) => item.id));
+    MapData.sources().forEach(item => ids.add(item.name));
+
     const removeSources = Object.entries(map.current.getStyle().sources).filter(
-      ([key, value]) => !(key in ids) && "cu-" === key.substring(0, 4)
+      ([key, value]) => !ids.has(key) && "cu-" === key.substring(0, 3)
     );
     const removeLayers = Object.values(map.current.getStyle().layers).filter(
-      (e) => !(e.id in ids) && "cu-" === e.id.substring(0, 4)
+      (e) => !(ids.has(e.id)) && "cu-" === e.id.substring(0, 3)
     );
-    
-    removeSources.forEach(source => map.current.removeLayer(source[0]));
-    removeLayers.forEach(layer => map.current.removeLayer(layer.id)); 
+    removeLayers.forEach(layer => map.current.removeLayer(layer.id));
+    removeSources.forEach(([key, value]) => map.current.removeSource(key));
   };
 
   const forceUpdate = useCallback(() => {
-    console.log(MapData.data);
-    if (map.current === undefined) {
+    if (map.current === undefined || !map.current.isStyleLoaded()) {
       return;
     }
-    if (!map.current.isStyleLoaded()) {
-      map.current.on("styledata", () => {
-        update();
-      });
-    } else {
-      update();
-    }
-  }, [map]);
+    update();
+  }, []);
 
   MapData.addSubscriber(forceUpdate);
 

@@ -9,6 +9,7 @@ async function KeyLocations() {
       name: item['Unnamed: 0'],
       numPeople: item["TOTAL PERSONS (NOT including Pedestrians)"],
       numAuto: item['TOTAL AUTO'],
+      numPeopleAuto: item['TOTAL AUTO PERSONS'],
       numGoTrain: item['TOTAL GO TRAIN PASSENGERS'],
       numSubWay: item['TOTAL SUBWAY PASSENGERS'],
       numBus: item['TOTAL BUS PASSENGERS'],
@@ -19,9 +20,8 @@ async function KeyLocations() {
     .filter((value, index, self) => self.indexOf(value) === index);
   return locations;
 }
-const colourScale = d3.scaleQuantize()
-  .domain([0, 400000])
-  .range('#8598EF,#977AC9,#9A5FA2,#91477C,#803258,#69233A'.split(','));
+const colourScale = d3.scaleSequential(d3.interpolateWarm)
+.domain([800000, 0]); 
 
 const sizeScale = d3.scaleLinear()
   .domain([0, 400000])

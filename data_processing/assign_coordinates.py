@@ -43,7 +43,7 @@ def get_destination(name, source):
     multiplier = -1 if 'Outbound' in name else 1
     destination[1] += difference * multiplier
   elif 'Central' in name: 
-    multiplier = -1 if 'Outbound' in name else 1
+    multiplier = 1 if 'Outbound' in name else -1
     destination[0] += difference * multiplier
   return destination
 
