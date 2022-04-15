@@ -22,6 +22,7 @@ function rotate(a, theta) {
 
 function Arrow(id, a, b, name, colour, thickness, onClick = null){
   const arrow = createArrow(a, b); 
+  name = 'cu-' + name; 
   const data = {
     name: name, 
     data: {

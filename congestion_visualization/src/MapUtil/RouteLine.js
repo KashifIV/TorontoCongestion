@@ -1,6 +1,7 @@
 import { MapData } from "./MapDataController";
 
 function RouteLine(id, coordinates, name, color, onClick = null){
+  name = 'cu-' + name; 
   const data = {
     name: name, 
     data: {
@@ -23,10 +24,10 @@ function RouteLine(id, coordinates, name, color, onClick = null){
     'line-join': 'round',
     'line-cap': 'round'
     },
-    'opacity': 0.5,
     'paint': {
     'line-color': color,
     'line-width': 8,
+    'line-opacity': 0.5,
     }, 
   }; 
 

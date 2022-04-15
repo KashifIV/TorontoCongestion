@@ -1,42 +1,53 @@
-import React, { useRef, useEffect, useState, useMemo, useCallback } from "react";
+import React, {
+  useRef,
+  useEffect,
+  useCallback,
+} from "react";
 import mapboxgl from "mapbox-gl";
 import { MapData } from "../MapUtil/MapDataController";
 
 mapboxgl.accessToken = process.env.REACT_APP_MAPBOX_TOKEN;
 export const Map = (props) => {
   let map = useRef();
-  const mapContainer = useRef(); 
+  const mapContainer = useRef();
 
   const update = () => {
-    MapData.sources().forEach(source => {
+    MapData.sources().forEach((source) => {
       if (map.current.getSource(source.name) === undefined) {
-        map.current.addSource(source.name, source.data); 
+        map.current.addSource(source.name, source.data);
       }
-    }); 
-    MapData.layers().forEach(layer => {
-      if (map.current.getLayer(layer.id) === undefined){
-        map.current.addLayer(layer); 
+      else {
+        map.current.getSource(source.name).setData(source.data.data); 
       }
-    }); 
-    MapData.clicks().forEach(click => {
-      map.current.on('click', click.layer, click.func);
-    }); 
-  }; 
+    });
+    MapData.layers().forEach((layer) => {
+      if (map.current.getLayer(layer.id) === undefined) {
+        map.current.addLayer(layer);
+      }
+    });
+    MapData.clicks().forEach((click) => {
+      map.current.on("click", click.layer, click.func);
+    });
+    // Remove dangling layers
+    let ids = new Set(MapData.layers().map((item) => item.id));
+    MapData.sources().forEach(item => ids.add(item.name));
+
+    const removeSources = Object.entries(map.current.getStyle().sources).filter(
+      ([key, value]) => !ids.has(key) && "cu-" === key.substring(0, 3)
+    );
+    const removeLayers = Object.values(map.current.getStyle().layers).filter(
+      (e) => !(ids.has(e.id)) && "cu-" === e.id.substring(0, 3)
+    );
+    removeLayers.forEach(layer => map.current.removeLayer(layer.id));
+    removeSources.forEach(([key, value]) => map.current.removeSource(key));
+  };
 
   const forceUpdate = useCallback(() => {
-    console.log(MapData.data);
-    if (map.current === undefined){
-      return; 
+    if (map.current === undefined || !map.current.isStyleLoaded()) {
+      return;
     }
-    if (!map.current.isStyleLoaded()){
-      map.current.on('styledata', () => {
-        update();
-      });
-    }
-    else {
-      update(); 
-    }
-  }, [map]);
+    update();
+  }, []);
 
   MapData.addSubscriber(forceUpdate);
 
@@ -58,25 +69,25 @@ export const Map = (props) => {
         minzoom: 13,
         paint: {
           "fill-extrusion-color": "#aaa",
-          'fill-extrusion-height': [
-            'interpolate',
-            ['linear'],
-            ['zoom'],
+          "fill-extrusion-height": [
+            "interpolate",
+            ["linear"],
+            ["zoom"],
             13,
             0,
             13.05,
-            ['get', 'height']
-            ],
-            'fill-extrusion-base': [
-            'interpolate',
-            ['linear'],
-            ['zoom'],
+            ["get", "height"],
+          ],
+          "fill-extrusion-base": [
+            "interpolate",
+            ["linear"],
+            ["zoom"],
             13,
             0,
             1305,
-            ['get', 'min_height']
-            ],
-            'fill-extrusion-opacity': 0.6
+            ["get", "min_height"],
+          ],
+          "fill-extrusion-opacity": 0.6,
         },
       });
       map.current.addSource("mapbox-dem", {

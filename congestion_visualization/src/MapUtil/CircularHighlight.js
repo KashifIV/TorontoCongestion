@@ -5,7 +5,7 @@ function CreateCircularHighlight(id, center, radius, name, color='red', onClick 
     steps: 80,
     units: 'kilometers' // or "mile"
   });
-
+  name = 'cu-' + name; 
   const data = {
     name: name,
     data: {
